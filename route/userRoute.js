@@ -4,9 +4,23 @@ const {
   addUser,
   updateUser,
   deleteUser,
+  getSignedUrl,
+  generateLink,
+  validateToken,
+  submitDetails,
 } = require("../controller/userController");
 
 const router = require("express").Router();
+
+router
+  .route("/signed-url")
+  .get(authentication, restrictTo("admin"), getSignedUrl);
+
+router
+  .route("/generate-link")
+  .get(authentication, restrictTo("admin"), generateLink);
+router.route("/validate-token/:token").get(validateToken);
+router.route("/submit-details/:token").post(submitDetails);
 
 router
   .route("/")

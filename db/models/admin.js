@@ -2,6 +2,7 @@
 const { Model, Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 const user = require("./user");
+const token = require("./token");
 
 const admin = sequelize.define(
   "admin",
@@ -92,5 +93,7 @@ const admin = sequelize.define(
 // Define associations
 admin.hasMany(user, { foreignKey: "adminId", as: "users" });
 user.belongsTo(admin, { foreignKey: "adminId", as: "admin" });
+admin.hasMany(token, { foreignKey: "adminId", as: "tokens" });
+token.belongsTo(admin, { foreignKey: "adminId", as: "admin" });
 
 module.exports = admin;

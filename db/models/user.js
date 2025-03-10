@@ -12,6 +12,10 @@ const user = sequelize.define(
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
+    profilePicture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
