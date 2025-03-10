@@ -6,10 +6,7 @@ const config = require("./config");
 const sequelize = new Sequelize(config[env], {
   dialect: "postgres",
   dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false, // Bypass self-signed certificate issue
-    },
+    ssl: false,
   },
 });
 
