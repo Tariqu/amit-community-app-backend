@@ -10,6 +10,7 @@ const sequelize = new Sequelize(config[env], {
       rejectUnauthorized: false, // Bypass self-signed certificate error
     },
   },
+  logging: console.log,
 });
 
 module.exports = sequelize;
